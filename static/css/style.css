@@ -11,21 +11,25 @@
     --gap-2:0.6rem;
     --gap-3:1.2rem;
 
-    /* Dark suave */
-    --bg-page: #12161c;
+    /* Dark base más equilibrado */
+    --bg-page: #11151b;
 
     --card-bg: #1a2028;
-    --card-border: #273240;
+    --card-border: #2a3442;
 
-    --accent: #6f93b7;       /* azul apagado */
-    --accent-2: #7f9b86;     /* verde gris suave */
+    /* Acentos armonizados (menos saturación) */
+    --accent: #5f86a8;       /* azul grisáceo */
+    --accent-soft: rgba(95,134,168,0.15);
+
+    --success: #5f8f73;      /* verde apagado */
+    --success-soft: rgba(95,143,115,0.15);
 
     --text: #d7dde5;
-    --muted: #9aa6b2;
+    --muted: #98a4b3;
 
     --tag-text: #e9eef3;
 
-    --shadow: rgba(0,0,0,0.25);
+    --shadow: rgba(0,0,0,0.28);
 }
 
 body{
@@ -37,6 +41,8 @@ body{
 img{
     display:block;
 }
+
+/* UI CONTROLS */
 .ui{
     display:flex;
     align-items: center;
@@ -46,18 +52,30 @@ img{
     border-radius: var(--gap-2);
     color: var(--text);
 }
+
 .ui--control{
-    
-    background:rgba(28, 101, 28, 0.529);
+    background: var(--success-soft);
+    border: 1px solid rgba(95,143,115,0.25);
     padding:var(--gap-1) var(--gap-2);
     border-radius: var(--gap-2);
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
+
+.ui--control:hover{
+    background: rgba(95,143,115,0.22);
+}
+
 .ui__input{
     text-align: center;
     width:5rem;
+    background: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--card-border);
+    border-radius: var(--gap-1);
 }
+
+/* GRID */
 .card-holder{
     margin:auto;
     display:grid;
@@ -67,6 +85,7 @@ img{
     gap:var(--gap-3);
 }
 
+/* CARD */
 .card{
     display:grid;
     background: var(--card-bg);
@@ -79,7 +98,7 @@ img{
 
 .card:hover{
     transform: translateY(-2px);
-    border-color: rgba(111,147,183,0.5);
+    border-color: rgba(95,134,168,0.35);
 }
 
 .card__imagen{
@@ -87,7 +106,7 @@ img{
 }
 
 .card__titulo{
-
+    color: var(--text);
 }
 
 .card__especie{
@@ -98,5 +117,5 @@ img{
     text-align: center;
     padding:var(--gap-1);
     color: var(--tag-text);
-    background: linear-gradient(135deg, #2a3442, #2f3b36);
+    background: linear-gradient(135deg, #242c38, #26302b);
 }
