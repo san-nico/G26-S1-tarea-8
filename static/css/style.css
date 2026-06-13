@@ -1,0 +1,102 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    color:inherit;
+    border:none;
+}
+
+:root{
+    --gap-1:0.3rem;
+    --gap-2:0.6rem;
+    --gap-3:1.2rem;
+
+    /* Dark suave */
+    --bg-page: #12161c;
+
+    --card-bg: #1a2028;
+    --card-border: #273240;
+
+    --accent: #6f93b7;       /* azul apagado */
+    --accent-2: #7f9b86;     /* verde gris suave */
+
+    --text: #d7dde5;
+    --muted: #9aa6b2;
+
+    --tag-text: #e9eef3;
+
+    --shadow: rgba(0,0,0,0.25);
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: var(--bg-page);
+    color: var(--text);
+}
+
+img{
+    display:block;
+}
+.ui{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:var(--gap-1);
+    padding:var(--gap-2);
+    border-radius: var(--gap-2);
+    color: var(--text);
+}
+.ui--control{
+    
+    background:rgba(28, 101, 28, 0.529);
+    padding:var(--gap-1) var(--gap-2);
+    border-radius: var(--gap-2);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.ui__input{
+    text-align: center;
+    width:5rem;
+}
+.card-holder{
+    margin:auto;
+    display:grid;
+    justify-content: center;
+    width:min(1300px,100%);
+    grid-template-columns: repeat(auto-fill,200px);
+    gap:var(--gap-3);
+}
+
+.card{
+    display:grid;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--gap-2);
+    overflow: hidden;
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover{
+    transform: translateY(-2px);
+    border-color: rgba(111,147,183,0.5);
+}
+
+.card__imagen{
+    filter: brightness(0.98) contrast(1.02);
+}
+
+.card__titulo{
+
+}
+
+.card__especie{
+    color: var(--muted);
+}
+
+.card--texto{
+    text-align: center;
+    padding:var(--gap-1);
+    color: var(--tag-text);
+    background: linear-gradient(135deg, #2a3442, #2f3b36);
+}
