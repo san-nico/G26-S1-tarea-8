@@ -1,24 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarea 8: Rick & Morty API</title>
-    <link rel="stylesheet" href="static/css/style.css">
-    <script type="text/javascript" src="static/js/api.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 8: Rick & Morty API</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <script type="text/javascript" src="static/js/api.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Template -->
+  <script type="text/template" id="character-template">
+    <article class="card">
+      <div class="card__retrato">
+        <img class="card__imagen estado--{{status}}" src="{{image}}">
+        <img class="card__canvas estado--{{gender}}" src="static/img/canvas.png">
+      </div>
+
+      <div class="card__fila">
+        <div class="card__fila--izquierda">
+          <img class="card__icono" src="static/img/nombre.png">
+          <h3 class="card__campo">Nombre</h3>
+          <p class="card__valor">{{name}}</p>
+        </div>
+        <div class="card__fila--derecha">
+          <img class="card__icono" src="static/img/genero.png">
+          <h3 class="card__campo">Género</h3>
+          <p class="card__valor">{{gender}}</p>
+        </div>
+      </div>
+
+      <div class="card__fila">
+        <div class="card__fila--izquierda">
+          <img class="card__icono" src="static/img/estado.png">
+          <h3 class="card__campo">Estado</h3>
+          <p class="card__valor">{{status}}</p>
+        </div>
+        <div class="card__fila--derecha">
+          <img class="card__icono" src="static/img/origen.png">
+          <h3 class="card__campo">Origen</h3>
+          <p class="card__valor">{{origin}}</p>
+        </div>
+      </div>
+
+      <div class="card__fila">
+        <div class="card__fila--izquierda">
+          <img class="card__icono" src="static/img/especie.png">
+          <h3 class="card__campo">Especie</h3>
+          <p class="card__valor">{{species}}</p>
+        </div>
+        <div class="card__fila--derecha">
+          <img class="card__icono" src="static/img/ubicacion.png">
+          <h3 class="card__campo">Ubicación</h3>
+          <p class="card__valor">{{location}}</p>
+        </div>
+      </div>
+    </article>
+  </script>
 </head>
+
 <body>
+  <nav class="ui" id="#ui">
+    <span>Página</span>
+    <button id="btn-izquierda" class="ui__boton ui--control">
+      <i class="fa-solid fa-caret-left"></i>
+    </button>
+    <input disabled id="btn-input" class="ui__input ui--control" type="text" value="1">
+    <button id="btn-derecha" class="ui__boton ui--control">
+      <i class="fa-solid fa-caret-right"></i>
+    </button>
+  </nav>
 
-    <nav class="ui" id="#ui">
-        pagina:
-        <button id="btn-izquierda" class="ui__boton ui--control"><</button>
-        <input disabled id="btn-input" class="ui__input ui--control"type="text" value="1">
-        <button id="btn-derecha" class="ui__boton ui--control">></button>
-   </nav>
-
-    <section class="card-holder" id="mainholder">
-
-    </section>
-    
+  <section class="card-holder" id="mainholder">
+  </section>
 </body>
+
 </html>

@@ -1,0 +1,21 @@
+{
+  "name": "g26-s1-tarea-8",
+  "version": "1.0.0",
+  "description": "Tarea 8: API Rick &amp; Morty",
+  "main": "index.js",
+  "scripts": {
+    "dev": "browser-sync start --server --files \"index.html, static/css/*.css, static/js/*.js\" --port 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/san-nico/G26-S1-tarea-8.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/san-nico/G26-S1-tarea-8/issues"
+  },
+  "homepage": "https://github.com/san-nico/G26-S1-tarea-8#readme"
+}
