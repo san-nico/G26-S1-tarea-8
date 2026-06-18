@@ -128,6 +128,7 @@ img {
 }
 
 .card__imagen {
+
     grid-area: a;
     width: 12rem;
     background-color: black;
@@ -198,6 +199,9 @@ img {
     margin: auto;
     grid-area: icono;
     width: 3rem;
+    mask: radial-gradient(circle,
+            black 60%,
+            transparent 50%);
 }
 
 .card__campo {
