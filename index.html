@@ -13,8 +13,8 @@
   <script type="text/template" id="character-template">
     <article class="card">
       <div class="card__retrato">
-        <img class="card__imagen estado--{{status}}" src="{{image}}">
-        <img class="card__canvas estado--{{gender}}" src="static/img/canvas.png">
+        <img class="card__imagen imagen--{{status}}" src="{{image}}">
+        <img class="card__canvas retrato--{{gender}}" src="static/img/canvas.png">
       </div>
 
       <div class="card__fila">
@@ -34,7 +34,7 @@
         <div class="card__fila--izquierda">
           <img class="card__icono" src="static/img/estado.png">
           <h3 class="card__campo">Estado</h3>
-          <p class="card__valor">{{status}}</p>
+          <p class="card__valor estado--{{status}}">{{status}}</p>
         </div>
         <div class="card__fila--derecha">
           <img class="card__icono" src="static/img/origen.png">
