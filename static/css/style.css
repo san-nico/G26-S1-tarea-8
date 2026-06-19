@@ -55,18 +55,27 @@ h3 {
 }
 
 /* UI CONTROLS */
+.ui-holder{
+    display:grid;
+    justify-content: center;
+    background: hsl(190, 10%, 15%);
+        
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
 .ui {
-    display: flex;
+    display:grid;
+    grid-template-columns: 1fr auto auto auto 1fr;
+    margin:auto;
     align-items: center;
     justify-content: center;
+    justify-items: center;
     gap: var(--gap-1);
     padding: var(--gap-2);
     border-radius: var(--gap-2);
     color: var(--text);
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background: hsl(190, 10%, 15%);
+
 }
 
 .ui--control {
