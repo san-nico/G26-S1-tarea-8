@@ -7,6 +7,7 @@
 }
 
 :root {
+    --card-width:46rem;
     --gap-1: 0.3rem;
     --gap-2: 0.6rem;
     --gap-3: 1.2rem;
@@ -90,24 +91,22 @@ img {
 }
 
 
-/* CARD */
 .card {
+    background:#0001;
+    padding: var(--gap-1);
+    border-radius: var(--gap-3);
+    border: 1px solid #FFF2;
 
     display: grid;
-    position: relative;
     gap: var(--gap-1);
-
     box-shadow: 0 4px 12px var(--shadow);
     transition: transform 0.2s ease, border-color 0.2s ease;
+    align-items:center;
 }
 
 .card:hover {
-    transform: translateY(-2px);
     border-color: rgba(95, 134, 168, 0.35);
 }
-
-
-
 
 .card--texto {
     text-align: center;
@@ -116,46 +115,52 @@ img {
     background: linear-gradient(135deg, #242c38, #26302b);
 }
 
+.card__filas{
+    display:grid;
+    gap:var(--gap-1);
+    grid-area:filas;
+}
+
 .card__retrato {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: grid;
-    justify-items: center;
-    align-items: center;
-    zoom: 0.9;
+    grid-area:retrato;
+    justify-self: center;
+    justify-items:center;
+    align-items:center;
+    
+    z-index:1;
+    max-width:14rem;
 }
 
 .card__imagen {
-
-    grid-area: a;
-    width: 12rem;
+    grid-area:imagen;
     background-color: black;
+    width:75%;
+    height:75%;
+    
 }
 
 .card__canvas {
-    grid-area: b;
-    width: 15rem;
-
+    grid-area: canvas;
+    width:100%;
+    height:100%;
+    
 }
 
 .card__fila {
-
     padding: var(--gap-1);
     border: 2px solid transparent;
     /* borde transparente */
 
+    width:var(--card-width);
     display: flex;
     border-radius: 1rem / 100%;
     justify-content: space-between;
-    animation: crecer 0.3s ease forwards;
-
+    
     /* se ejecuta al inicio */
     background:
         linear-gradient(30deg, #444, #000, #444) padding-box,
         linear-gradient(30deg, orange, red, blue) border-box;
-
 }
 
 @keyframes crecer {
@@ -164,7 +169,7 @@ img {
     }
 
     to {
-        width: 46rem;
+        width: var(--card-width);
         /* o el ancho que necesites */
     }
 }
@@ -247,4 +252,25 @@ img {
 
 .estado--unknown {
     color: gray;
+}
+
+@media (max-width: 780px) {
+    :root{
+       --card-width:100%;
+    }
+    .card__fila{ 
+    }
+    .card__valor{
+        width:auto;
+    }
+    .card{
+        grid-template-areas: 
+        "retrato"
+        "filas"
+        ;
+    }
+    .card__retrato{
+      
+    }
+    
 }
