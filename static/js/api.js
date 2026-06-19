@@ -8,15 +8,24 @@ const cache = new Map();
 
 async function get_characters(pagina) {
     const url = `${api_root}?page=${pagina}`;
-    const cached = localStorage.getItem(url);
-    if (cached) {
+    try {
+        const cached = localStorage.getItem(url);
+        if (!cached) {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Error ${response.status}: ${response.statusText}`);
+            }
+            const data = await response.json();
+            localStorage.setItem(url, JSON.stringify(data.results));
+            return data.results;
+        }
         return JSON.parse(cached);
+    } catch (error) {
+        console.error("Error al obtener personajes:", error);
+        return [];
     }
-    const response = await fetch(url);
-    const data = await response.json();
-    localStorage.setItem(url, JSON.stringify(data.results));
-    return data.results;
 }
+
 function characterTemplate(element) {
     const template = document.getElementById("character-template").innerHTML;
     return template
@@ -47,10 +56,15 @@ async function mainController() {
 async function cargarPagina(indice) {
     let datos = await get_characters(indice);
     mainholder.innerHTML = "";
+    if (datos.length === 0) {
+        mainholder.innerHTML = "<p>Error al cargar personajes. Intenta nuevamente.</p>";
+        return;
+    }
     datos.forEach(element => {
         mainholder.insertAdjacentHTML("beforeend", characterTemplate(element));
     });
 }
+
 async function cambiarpagina(pagina) {
     btn_input.value = pagina;
     window.location.hash = `pagina=${numpagina}`;
