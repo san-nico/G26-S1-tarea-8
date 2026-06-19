@@ -7,10 +7,13 @@
 }
 
 :root {
-    --card-width:46rem;
+    --card-width: 46rem;
     --gap-1: 0.3rem;
     --gap-2: 0.6rem;
     --gap-3: 1.2rem;
+    --fondo-rainbow:
+        linear-gradient(30deg, #444, #000, #444) padding-box,
+        linear-gradient(30deg, rgb(237, 155, 1), red, blue) border-box;
 
     /* Dark base más equilibrado */
     --bg-page: #11151b;
@@ -47,6 +50,10 @@ img {
     display: block;
 }
 
+h3 {
+    font-size: 1rem;
+}
+
 /* UI CONTROLS */
 .ui {
     display: flex;
@@ -56,6 +63,10 @@ img {
     padding: var(--gap-2);
     border-radius: var(--gap-2);
     color: var(--text);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: hsl(190, 10%, 15%);
 }
 
 .ui--control {
@@ -87,21 +98,18 @@ img {
     justify-content: center;
     width: min(1300px, 100%);
     grid-template-columns: auto;
-    gap: 2rem;
+    gap: var(--gap-1);
 }
 
 
 .card {
-    background:#0001;
-    padding: var(--gap-1);
-    border-radius: var(--gap-3);
-    border: 1px solid #FFF2;
+
 
     display: grid;
     gap: var(--gap-1);
     box-shadow: 0 4px 12px var(--shadow);
     transition: transform 0.2s ease, border-color 0.2s ease;
-    align-items:center;
+    align-items: center;
 }
 
 .card:hover {
@@ -115,36 +123,37 @@ img {
     background: linear-gradient(135deg, #242c38, #26302b);
 }
 
-.card__filas{
-    display:grid;
-    gap:var(--gap-1);
-    grid-area:filas;
+.card__filas {
+    display: grid;
+    gap: var(--gap-1);
+    grid-area: filas;
 }
 
 .card__retrato {
     display: grid;
-    grid-area:retrato;
+    grid-area: retrato;
     justify-self: center;
-    justify-items:center;
-    align-items:center;
-    
-    z-index:1;
-    max-width:14rem;
+    justify-items: center;
+    align-items: center;
+
+    z-index: 1;
+    min-width: 0px;
+    max-width: 14rem;
 }
 
 .card__imagen {
-    grid-area:imagen;
+    grid-area: imagen;
     background-color: black;
-    width:75%;
-    height:75%;
-    
+    width: 75%;
+    height: 75%;
+
 }
 
 .card__canvas {
     grid-area: canvas;
-    width:100%;
-    height:100%;
-    
+    width: 100%;
+    height: 100%;
+
 }
 
 .card__fila {
@@ -152,15 +161,13 @@ img {
     border: 2px solid transparent;
     /* borde transparente */
 
-    width:var(--card-width);
+    width: var(--card-width);
     display: flex;
     border-radius: 1rem / 100%;
     justify-content: space-between;
-    
+
     /* se ejecuta al inicio */
-    background:
-        linear-gradient(30deg, #444, #000, #444) padding-box,
-        linear-gradient(30deg, orange, red, blue) border-box;
+    background: var(--fondo-rainbow);
 }
 
 @keyframes crecer {
@@ -188,7 +195,7 @@ img {
         "valor icono"
     ;
     text-align: right;
-    
+
 }
 
 .card__fila--izquierda {
@@ -224,8 +231,8 @@ img {
     grid-area: valor;
     color: rgb(0, 191, 255);
     font-weight: bold;
-    width:10rem;
     overflow: hidden;
+
     text-overflow: ellipsis;
 
 }
@@ -254,23 +261,76 @@ img {
     color: gray;
 }
 
+
 @media (max-width: 780px) {
-    :root{
-       --card-width:100%;
+    :root {
+        --card-width: 100%;
     }
-    .card__fila{ 
+
+    .card__filas {
+        border-radius: 1rem / 100%;
+        border: 1px solid transparent;
+        background: var(--fondo-rainbow);
+        gap: 0;
+        padding: var(--gap-1);
     }
-    .card__valor{
-        width:auto;
+
+    .card__fila {
+        padding: 0;
+        justify-content: stretch;
+        display: grid;
+        background: none;
+
     }
-    .card{
-        grid-template-areas: 
-        "retrato"
-        "filas"
+
+    .card__fila--derecha,
+    .card__fila--izquierda {
+        grid-template-columns: auto auto 1fr;
+
+        grid-template-areas:
+            "icono valor"
         ;
     }
-    .card__retrato{
-      
+
+    .card__campo {
+        display: none;
+        align-self: center;
     }
-    
+
+    .card__icono {
+        width: 2rem;
+    }
+
+    .card__valor {
+        align-self: center;
+        justify-self: end;
+        width: auto;
+
+    }
+
+    .card {
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "retrato filas"
+
+
+        ;
+    }
+
+    .card__retrato {}
+
+}
+
+@media (max-width: 500px) {
+    .card-holder {
+        gap: 2rem;
+    }
+
+    .card {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "retrato"
+            "filas"
+        ;
+    }
 }
