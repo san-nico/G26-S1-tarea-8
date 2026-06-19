@@ -154,8 +154,8 @@ h3 {
 .card__imagen {
     grid-area: imagen;
     background-color: black;
-    width: 75%;
-    height: 75%;
+    width: 84%;
+    aspect-ratio:1/1;
 
 }
 
