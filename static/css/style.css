@@ -222,9 +222,12 @@ h3 {
     margin: auto;
     grid-area: icono;
     width: 3rem;
+    border:1px solid white;
+    border-radius: 100%;
+    
     mask: radial-gradient(circle,
             black 60%,
-            transparent 50%);
+            transparent 0%);
 }
 
 .card__campo {
