@@ -6,6 +6,7 @@
     border: none;
 }
 
+/*----------------------------*/
 :root {
     --card-width: 46rem;
     --gap-1: 0.3rem;
@@ -14,37 +15,20 @@
     --fondo-rainbow:
         linear-gradient(30deg, #444, #000, #444) padding-box,
         linear-gradient(30deg, rgb(237, 155, 1), red, blue) border-box;
-
     /* Dark base más equilibrado */
     --bg-page: #11151b;
-
     --card-bg: #1a2028;
     --card-border: #2a3442;
-
-    /* Acentos armonizados (menos saturación) */
-    --accent: #5f86a8;
-    /* azul grisáceo */
-    --accent-soft: rgba(95, 134, 168, 0.15);
-
-    --success: #5f8f73;
-    /* verde apagado */
     --success-soft: rgba(95, 143, 115, 0.15);
-
     --text: #d7dde5;
-    --muted: #98a4b3;
-
-    --tag-text: #e9eef3;
-
     --shadow: rgba(0, 0, 0, 0.28);
-
-    
-    --color:255, 255, 255;
-    
+    --color: 255, 255, 255;
     --fondo-glass: radial-gradient(circle at 80% 20%,
             rgba(var(--color), 0.4) 0%,
             rgba(var(--color), 0) 100%);
 }
 
+/*----------------------------*/
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background: var(--bg-page);
@@ -61,17 +45,17 @@ h3 {
     font-size: 1rem;
 }
 
-/* UI CONTROLS */
+/*----------------------------*/
 .ui-holder {
     display: grid;
     justify-content: center;
     background: hsl(190, 10%, 15%);
-
     position: sticky;
     top: 0;
     z-index: 2;
 }
 
+/*----------------------------*/
 .ui {
     display: grid;
     grid-template-columns: 1fr auto auto auto 1fr;
@@ -83,7 +67,6 @@ h3 {
     padding: var(--gap-2);
     border-radius: var(--gap-2);
     color: var(--text);
-
 }
 
 .ui--control {
@@ -95,10 +78,6 @@ h3 {
     transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.ui--control:hover {
-    background: rgba(95, 143, 115, 0.22);
-}
-
 .ui__input {
     text-align: center;
     width: 5rem;
@@ -108,9 +87,8 @@ h3 {
     border-radius: var(--gap-1);
 }
 
-/* GRID */
+/*----------------------------*/
 .card-holder {
-
     margin: auto;
     display: grid;
     justify-content: center;
@@ -119,19 +97,13 @@ h3 {
     gap: var(--gap-1);
 }
 
-
+/*----------------------------*/
 .card {
-
-
     display: grid;
     gap: var(--gap-1);
     box-shadow: 0 4px 12px var(--shadow);
     transition: transform 0.2s ease, border-color 0.2s ease;
     align-items: center;
-}
-
-.card:hover {
-    border-color: rgba(95, 134, 168, 0.35);
 }
 
 .card--texto {
@@ -153,11 +125,9 @@ h3 {
     justify-self: center;
     justify-items: center;
     align-items: center;
-
     z-index: 1;
     min-width: 0px;
     max-width: 14rem;
-
 }
 
 .card__glass {
@@ -165,9 +135,7 @@ h3 {
     background: red;
     width: 84%;
     height: 84%;
-
     background: var(--fondo-glass);
-
 }
 
 .card__imagen {
@@ -175,39 +143,24 @@ h3 {
     background-color: black;
     width: 84%;
     aspect-ratio: 1/1;
-
 }
 
 .card__canvas {
     grid-area: canvas;
     width: 100%;
     height: 100%;
-
 }
 
 .card__fila {
     padding: var(--gap-1);
     border: 2px solid transparent;
     /* borde transparente */
-
     width: var(--card-width);
     display: flex;
     border-radius: 1rem / 100%;
     justify-content: space-between;
-
     /* se ejecuta al inicio */
     background: var(--fondo-rainbow);
-}
-
-@keyframes crecer {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: var(--card-width);
-        /* o el ancho que necesites */
-    }
 }
 
 .card__fila--izquierda,
@@ -224,7 +177,6 @@ h3 {
         "valor icono"
     ;
     text-align: right;
-
 }
 
 .card__fila--izquierda {
@@ -234,7 +186,6 @@ h3 {
         "icono valor"
     ;
     grid-template-columns: 1fr auto;
-
 }
 
 .card__icono {
@@ -243,7 +194,6 @@ h3 {
     width: 3rem;
     border: 1px solid white;
     border-radius: 100%;
-
     mask: radial-gradient(circle,
             black 60%,
             transparent 0%);
@@ -264,15 +214,15 @@ h3 {
     color: rgb(0, 191, 255);
     font-weight: bold;
     overflow: hidden;
-
     text-overflow: ellipsis;
-
 }
 
+/*----------------------------*/
 .imagen--Dead {
     filter: grayscale(1) contrast(0.5);
 }
 
+/*----------------------------*/
 .retrato--Male {
     filter: hue-rotate(50deg);
 }
@@ -281,6 +231,7 @@ h3 {
     filter: hue-rotate(130deg);
 }
 
+/*----------------------------*/
 .estado--Dead {
     color: #F66;
 }
@@ -293,7 +244,7 @@ h3 {
     color: gray;
 }
 
-
+/*----------------------------*/
 @media (max-width: 780px) {
     :root {
         --card-width: 100%;
@@ -312,13 +263,11 @@ h3 {
         justify-content: stretch;
         display: grid;
         background: none;
-
     }
 
     .card__fila--derecha,
     .card__fila--izquierda {
         grid-template-columns: auto auto 1fr;
-
         grid-template-areas:
             "icono valor"
         ;
@@ -337,22 +286,17 @@ h3 {
         align-self: center;
         justify-self: end;
         width: auto;
-
     }
 
     .card {
         grid-template-columns: auto 1fr;
         grid-template-areas:
             "retrato filas"
-
-
         ;
     }
-
-    .card__retrato {}
-
 }
 
+/*----------------------------*/
 @media (max-width: 500px) {
     .card-holder {
         gap: 2rem;
