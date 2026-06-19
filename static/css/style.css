@@ -182,7 +182,8 @@ img {
         "campo icono"
         "valor icono"
     ;
-
+    text-align: right;
+    
 }
 
 .card__fila--izquierda {
@@ -212,12 +213,16 @@ img {
 }
 
 .card__valor {
-
+    white-space: nowrap;
     letter-spacing: -0.05rem;
     align-self: start;
     grid-area: valor;
     color: rgb(0, 191, 255);
     font-weight: bold;
+    width:10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
 .imagen--Dead {
