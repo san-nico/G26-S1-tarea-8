@@ -45,8 +45,8 @@ async function mainController() {
     }
 }
 async function cargarPagina(indice) {
-    mainholder.innerHTML = "";
     let datos = await get_characters(indice);
+    mainholder.innerHTML = "";
     datos.forEach(element => {
         mainholder.insertAdjacentHTML("beforeend", characterTemplate(element));
     });

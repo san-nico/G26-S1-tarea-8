@@ -102,6 +102,7 @@ h3 {
 
 /* GRID */
 .card-holder {
+    background:orange;
     margin: auto;
     display: grid;
     justify-content: center;
