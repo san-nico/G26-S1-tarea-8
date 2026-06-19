@@ -36,6 +36,13 @@
     --tag-text: #e9eef3;
 
     --shadow: rgba(0, 0, 0, 0.28);
+
+    
+    --color:255, 255, 255;
+    
+    --fondo-glass: radial-gradient(circle at 80% 20%,
+            rgba(var(--color), 0.4) 0%,
+            rgba(var(--color), 0) 100%);
 }
 
 body {
@@ -55,19 +62,20 @@ h3 {
 }
 
 /* UI CONTROLS */
-.ui-holder{
-    display:grid;
+.ui-holder {
+    display: grid;
     justify-content: center;
     background: hsl(190, 10%, 15%);
-        
+
     position: sticky;
     top: 0;
     z-index: 2;
 }
+
 .ui {
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr auto auto auto 1fr;
-    margin:auto;
+    margin: auto;
     align-items: center;
     justify-content: center;
     justify-items: center;
@@ -149,13 +157,24 @@ h3 {
     z-index: 1;
     min-width: 0px;
     max-width: 14rem;
+
+}
+
+.card__glass {
+    grid-area: glass;
+    background: red;
+    width: 84%;
+    height: 84%;
+
+    background: var(--fondo-glass);
+
 }
 
 .card__imagen {
     grid-area: imagen;
     background-color: black;
     width: 84%;
-    aspect-ratio:1/1;
+    aspect-ratio: 1/1;
 
 }
 
@@ -222,9 +241,9 @@ h3 {
     margin: auto;
     grid-area: icono;
     width: 3rem;
-    border:1px solid white;
+    border: 1px solid white;
     border-radius: 100%;
-    
+
     mask: radial-gradient(circle,
             black 60%,
             transparent 0%);
@@ -251,7 +270,7 @@ h3 {
 }
 
 .imagen--Dead {
-    filter: grayscale(100%);
+    filter: grayscale(1) contrast(0.5);
 }
 
 .retrato--Male {
