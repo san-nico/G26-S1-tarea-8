@@ -106,12 +106,6 @@ h3 {
     align-items: center;
 }
 
-.card--texto {
-    text-align: center;
-    padding: var(--gap-1);
-    color: var(--tag-text);
-    background: linear-gradient(135deg, #242c38, #26302b);
-}
 
 .card__filas {
     display: grid;
@@ -215,6 +209,7 @@ h3 {
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
+    width:min(12rem, 100%);
 }
 
 /*----------------------------*/
@@ -232,15 +227,31 @@ h3 {
 }
 
 /*----------------------------*/
-.estado--Dead {
+.status--dead {
     color: #F66;
 }
 
-.estado--Alive {
+.status--alive {
     color: #6F6;
 }
+.species--alien{
+    color:rgb(60, 60, 246);
+}
+.species--animal{
+    color:green;
+}
+.species--disease{
+    color:red;
+}
+.gender-female{
+    color:pink;
+}
 
-.estado--unknown {
+.status--unknown,
+.gender--unknown,
+.species--unknown,
+.status--unknown
+{
     color: gray;
 }
 

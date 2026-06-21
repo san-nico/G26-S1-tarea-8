@@ -4,6 +4,8 @@ const mainholder = document.getElementById("mainholder");
 const btn_izquierda = document.getElementById("btn-izquierda");
 const btn_derecha = document.getElementById("btn-derecha");
 const btn_input = document.getElementById("btn-input");
+const char_template = document.getElementById("character-template").innerHTML;
+const row_template = document.getElementById("row-template").innerHTML;
 const cache = new Map();
 
 async function get_characters(pagina) {
@@ -25,18 +27,75 @@ async function get_characters(pagina) {
         return [];
     }
 }
+function rowTemplate(element) {
+    return row_template
+        .replaceAll("{{eje}}", element.eje)
+        .replaceAll("{{label}}", element.label)
+        .replaceAll("{{campo}}", element.campo)
+        .replaceAll("{{modificador}}", element.modificador)
+        .replaceAll("{{valor}}", element.valor);
+}
 
 function characterTemplate(element) {
-    const template = document.getElementById("character-template").innerHTML;
-    return template
-        .replace(/{{name}}/g, element.name)
-        .replace(/{{image}}/g, element.image)
-        .replace(/{{species}}/g, element.species)
-        .replace(/{{gender}}/g, element.gender)
-        .replace(/{{location}}/g, element.location.name)
-        .replace(/{{status}}/g, element.status)
-        .replace(/{{origin}}/g, element.origin.name)
-        ;
+    const data = {
+        name: {
+            eje: "izquierda",
+            campo: "name",
+            label: "Nombre",
+            modificador: "name--" + element.name.toLowerCase(),
+            valor: element.name
+        },
+        species: {
+            eje: "izquierda",
+            campo: "species",
+            label: "Especie",
+            modificador: "species--" + element.species.toLowerCase(),
+            valor: element.species
+        },
+        gender: {
+            eje: "derecha",
+            campo: "gender",
+            label: "Género",
+            modificador: "gender--" + element.gender.toLowerCase(),
+            valor: element.gender
+        },
+        location: {
+            eje: "derecha",
+            campo: "location",
+            label: "Ubicación",
+            modificador: "",
+            valor: element.location.name
+        },
+        status: {
+            eje: "izquierda",
+            campo: "status",
+            label: "Estado",
+            modificador: "status--" + element.status.toLowerCase(),
+            valor: element.status
+        },
+        origin: {
+            eje: "derecha",
+            campo: "origin",
+            label: "Origen",
+            modificador: "",
+            valor: element.origin.name
+        }
+    };
+
+    let html=char_template;
+    Object.values(data).forEach((item) => {
+        html = html.replaceAll(
+            `{{row-${item.campo}}}`,
+            rowTemplate(item)
+        );
+    });
+
+    
+    return html // no se procesando los replace all
+        .replaceAll("{{image}}", element.image)
+        .replaceAll("{{status}}", element.status)
+        .replaceAll("{{gender}}", element.gender);
+
 }
 async function mainController() {
     const hash = window.location.hash.slice(1); // "pagina=3"
