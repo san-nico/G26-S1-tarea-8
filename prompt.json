@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "request": "icon pack",
+        "main-theme": "medieval",
+        "prompt": "an icon pack medieval themed for rpg cards for a landing page"
+    },
+    "general-image": {
+        "background": "flat"
+    },
+    "icons": [
+        {
+            "shape": "circle",
+            "concept": "attack",
+            "main-color": "red"
+        },
+        {
+            "shape": "square",
+            "concept": "defense",
+            "main-color": "blue"
+        },
+        {
+            "shape": "circle",
+            "concept": "speed",
+            "main-color": "green"
+        },
+        {
+            "shape": "triangle",
+            "concept": "spirit",
+            "main-color": "black"
+        },
+        {
+            "shape": "octogon",
+            "concept": "esotheric",
+            "main-color": "white"
+        },
+        {
+            "shape": "pentagon",
+            "concept": "intelligence",
+            "main-color": "pink"
+        }
+    ]
+}
