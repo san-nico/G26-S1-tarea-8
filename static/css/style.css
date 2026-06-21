@@ -243,8 +243,8 @@ h3 {
 .species--disease{
     color:red;
 }
-.gender-female{
-    color:pink;
+.gender--female{
+    color:rgb(170, 75, 170);
 }
 
 .status--unknown,
@@ -263,8 +263,7 @@ h3 {
 
     .card__filas {
         border-radius: 1rem / 100%;
-        border: 1px solid transparent;
-        background: var(--fondo-rainbow);
+
         gap: 0;
         padding: var(--gap-1);
     }
@@ -274,6 +273,7 @@ h3 {
         justify-content: stretch;
         display: grid;
         background: none;
+        gap:var(--gap-1);
     }
 
     .card__fila--derecha,
@@ -282,6 +282,10 @@ h3 {
         grid-template-areas:
             "icono valor"
         ;
+        gap:var(--gap-1);
+        border-radius: 1rem / 100%;
+        border: 1px solid transparent;
+        background: var(--fondo-rainbow);
     }
 
     .card__campo {
